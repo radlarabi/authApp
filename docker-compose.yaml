@@ -1,0 +1,48 @@
+services:
+
+  react:
+    image: frontend
+    build: ./frontend/
+    container_name: react
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/:/app
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+    restart:
+      always
+
+  express:
+    image: backend
+    build: ./backend/
+    container_name: express
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/:/app
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+    restart:
+      always
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    volumes:
+      - ./database/:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+    env_file:
+      - .env
+    restart: always
+
+networks:
+  mynetwork:
+    driver: bridge
