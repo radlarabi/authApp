@@ -1,7 +1,7 @@
 FROM node:latest
 
-WORKDIR /app
+# WORKDIR /app
 
-COPY . .
+COPY script.sh script.sh
 
 CMD ["bash", "script.sh"]

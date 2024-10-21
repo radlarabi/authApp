@@ -10,7 +10,7 @@ async function registerUser(req, res) {
 
     try{
         const user = await User.create({email, password: hashedPassword})
-        res.status(201).json({message: "user registered", user})
+        res.status(201).json({message: "user registered"})
     }catch(e) {
         res.status(400).json({error: 'user Alredy exists'});
     }

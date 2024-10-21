@@ -1,7 +1,9 @@
 FROM node:latest
 
-COPY . .
+# WORKDIR /app
+# RUN cd /app
 
-RUN npm install
+# RUN npm install
+COPY script.sh script.sh
 
-CMD ["npm", "start"]
+CMD ["bash", "script.sh"]

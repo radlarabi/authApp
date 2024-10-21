@@ -1,4 +1,7 @@
 #!/bin/sh
+
+cd app
+
 echo "npm install ..."
 npm install
 
